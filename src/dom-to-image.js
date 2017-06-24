@@ -57,7 +57,7 @@
             .then(function (node) {
                 return cloneNode(node, options.filter, true);
             })
-            .then(embedFonts)
+            .then(embedFonts)   // 会查找css中font-face属性，然后通过ajax去加载，每次渲染都会去加载，且没有缓存，故去掉这个步骤
             .then(inlineImages)
             .then(applyOptions)
             .then(function (clone) {
